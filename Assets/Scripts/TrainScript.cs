@@ -7,6 +7,7 @@ public class TrainScript : MonoBehaviour
 {
     private Rigidbody2D train_RigidBody;
     private bool isDriving;
+    private int collisionCount = 0;
     public float speed;
     
 
@@ -22,7 +23,8 @@ public class TrainScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDriving)
+        // If collisionCount is zero, the train is currently not on any rails -> Stop the train
+        if (isDriving && collisionCount != 0)
         {
             // Always move the train forward in the direction it is facing
 
@@ -40,6 +42,8 @@ public class TrainScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        collisionCount++;
+        
         // Collision with straigt rail
         if (collision.gameObject.tag.Equals("straightRail") == true) {
             // If the rotation of the rail is different than the rotation of the train -> Stop the train
@@ -57,5 +61,27 @@ public class TrainScript : MonoBehaviour
                 isDriving = false;
             }
         }
+
+        // Collision with direction changer of curveRail
+        if (collision.gameObject.tag.Equals("directionChanger") == true) {
+            // Depending on the side on which the train enters the curve, change direction differently
+            float rotationDirection = transform.rotation.z;
+
+            if (transform.rotation.z == collision.transform.rotation.z) {
+                Debug.Log("Side A");
+                rotationDirection = collision.transform.rotation.eulerAngles.z - 90;
+            }
+
+            if (transform.rotation.eulerAngles.z == collision.transform.rotation.eulerAngles.z - 270) {
+                Debug.Log("Side B");
+                rotationDirection = collision.transform.rotation.eulerAngles.z + 180; 
+            }
+
+            train_RigidBody.SetRotation(rotationDirection); 
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        collisionCount--;
     }
 }

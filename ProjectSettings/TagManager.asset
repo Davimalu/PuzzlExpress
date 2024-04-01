@@ -6,6 +6,7 @@ TagManager:
   tags:
   - straightRail
   - curveRail
+  - directionChanger
   layers:
   - Default
   - TransparentFX
