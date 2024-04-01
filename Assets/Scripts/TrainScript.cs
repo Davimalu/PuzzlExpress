@@ -40,9 +40,22 @@ public class TrainScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // If the rotation of the rail is different than the rotation of the train -> Stop the train
-        if (transform.rotation.z != collision.transform.rotation.z) {
-            isDriving = false;
+        // Collision with straigt rail
+        if (collision.gameObject.tag.Equals("straightRail") == true) {
+            // If the rotation of the rail is different than the rotation of the train -> Stop the train
+            if (transform.rotation.z != collision.transform.rotation.z) {
+                isDriving = false;
+            }
+        }
+        
+        // Collision with curve rail
+        if (collision.gameObject.tag.Equals("curveRail") == true) {
+            // If the rotation of the curve rail is different than the rotation of the train -> Stop the train 
+            // There are 2 possible rotations in which the curve can be entered by the train
+            // See https://discussions.unity.com/t/why-does-transform-rotate-behave-so-strange/120303
+            if (transform.rotation.z != collision.transform.rotation.z && transform.rotation.eulerAngles.z != collision.transform.rotation.eulerAngles.z - 270) {
+                isDriving = false;
+            }
         }
     }
 }
