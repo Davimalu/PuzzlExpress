@@ -130,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.24, y: 10.24}
+  m_Size: {x: 9.5, y: 9.5}
   m_EdgeRadius: 0
 --- !u!50 &4174305201309623203
 Rigidbody2D:
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 2617200969431174834}
   - component: {fileID: 1061224481733271677}
   - component: {fileID: 295669298689356085}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DirectionChanger
   m_TagString: directionChanger
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -262,5 +262,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.25, y: 0.25}
   m_EdgeRadius: 0
