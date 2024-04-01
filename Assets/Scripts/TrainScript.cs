@@ -40,6 +40,7 @@ public class TrainScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // If the rotation of the rail is different than the rotation of the train -> Stop the train
         if (transform.rotation.z != collision.transform.rotation.z) {
             isDriving = false;
         }
