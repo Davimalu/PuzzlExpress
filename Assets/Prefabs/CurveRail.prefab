@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3802758950202147827}
   - component: {fileID: 6692929078347225149}
   - component: {fileID: 4174305201309623203}
+  - component: {fileID: 4470155756026508238}
   m_Layer: 0
   m_Name: CurveRail
   m_TagString: curveRail
@@ -159,6 +160,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4470155756026508238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2906415603994464042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448cf1d106c772420a9499b4fb6502ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6782705934973863391
 GameObject:
   m_ObjectHideFlags: 0

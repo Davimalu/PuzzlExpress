@@ -90,11 +90,28 @@ public class TrainScript : MonoBehaviour
 
             if (trainRotation == 0 || trainRotation == 180)
             {
-                if (trainRotation == colliderRotation || trainRotation == colliderRotation + 90)
+                if (trainRotation == colliderRotation)
                 {
                     // Note: Use quaternions instead of degrees to avoid floating point inaccuracies
+                    if (trainRotation == 0)
+                    {
+                        Debug.Log("A");
+                        rotationDirection = Quaternion.Euler(0, 0, 270);
+                    }
+                    else if (trainRotation == 180)
+                    {
+                        Debug.Log("B");
+                        rotationDirection = Quaternion.Euler(0, 0, 90);
+                    }
+                }
+
+                if (trainRotation == colliderRotation + 90)
+                {
                     rotationDirection = Quaternion.Euler(0, 0, 270);
                 }
+
+                Debug.Log(colliderRotation);
+                Debug.Log(trainRotation);
 
                 if (trainRotation == colliderRotation - 270)
                 {
@@ -107,12 +124,10 @@ public class TrainScript : MonoBehaviour
                 {
                     if (trainRotation == 90)
                     {
-                        Debug.Log("A");
                         rotationDirection = Quaternion.Euler(0, 0, 0);
                     }
                     if (trainRotation == 270)
                     {
-                        Debug.Log("B");
                         rotationDirection = Quaternion.Euler(0, 0, 180);
                     }
                 }
