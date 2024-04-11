@@ -7,7 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 public class TrainScript : MonoBehaviour
 {
     private Rigidbody2D train_RigidBody;
-    private bool isDriving;
+    public bool isDriving;
     private int collisionCount = 0;
     public float speed;
 
