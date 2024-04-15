@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -48,6 +49,16 @@ public class TrainScript : MonoBehaviour
         double colliderRotation = Mathf.Round(collision.transform.rotation.eulerAngles.z) % 360;
 
         collisionCount++;
+
+        if (collision.gameObject.tag.Equals("trainStation") == true)
+        {
+            GameObject.Find("Panel").GetComponent<Animator>().SetBool("show", true);
+        }
+
+        if (collision.gameObject.tag.Equals("stationEnd") == true)
+        {
+            isDriving = false;
+        }
 
         // Collision with straigt rail
         if (collision.gameObject.tag.Equals("straightRail") == true)
