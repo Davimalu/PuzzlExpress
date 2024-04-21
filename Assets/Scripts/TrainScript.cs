@@ -12,6 +12,8 @@ public class TrainScript : MonoBehaviour
     private int collisionCount = 0;
     public float speed;
 
+    private switchScript switchScript;
+
 
     // Start is called before the first frame update
     void Start()
@@ -64,37 +66,8 @@ public class TrainScript : MonoBehaviour
         if (collision.gameObject.tag.Equals("straightRail") == true)
         {
             // If the rotation of the rail is too different from the rotation of the train -> Stop the train
-
-            // Train travelling from right to left
-            if (trainRotation < 45 || trainRotation > 315) {
-                if(colliderRotation != 0 && colliderRotation != 180) {
-                    Debug.Log("Stop A");
-                    isDriving = false;
-                }
-            }
-
-            // Train travelling from left to right
-            if (trainRotation > 135 && trainRotation < 225) {
-                if(colliderRotation != 0 && colliderRotation != 180) {
-                    Debug.Log("Stop B");
-                    isDriving = false;
-                }
-            }
-
-            // Train travelling from top to bottom
-            if (trainRotation > 45 && trainRotation < 135) {
-                if(colliderRotation != 90 && colliderRotation != 270) {
-                    Debug.Log("Stop C");
-                    isDriving = false;
-                }
-            }
-
-            // Train travelling from bottom to top
-            if (trainRotation > 225 && trainRotation < 315) {
-                if(colliderRotation != 90 && colliderRotation != 270) {
-                    Debug.Log("Stop D");
-                    isDriving = false;
-                }
+            if (checkStopStraightRail(trainRotation, colliderRotation)) {
+                isDriving = false;
             }
         }
 
@@ -102,39 +75,28 @@ public class TrainScript : MonoBehaviour
         if (collision.gameObject.tag.Equals("curveRail") == true)
         {
             // If the rotation of the curve rail is too different than the rotation of the train -> Stop the train 
+            if (checkStopCurveRail(trainRotation, colliderRotation)) {
+                isDriving = false;
+            }
+            Debug.Log(collision);
+        }
 
-            // Train travelling from right to left
-            if (trainRotation < 45 || trainRotation > 315) {
-                if(colliderRotation != 0 && colliderRotation != 270) {
-                    Debug.Log("Stop E");
+        // Collision with switch
+        if (collision.gameObject.tag.Equals("switchRail") == true)
+        {
+            switchScript = collision.GetComponent<switchScript>();
+
+            // Switch in straight position
+            if (switchScript.switched == false) {
+                if (checkStopStraightRail(trainRotation, colliderRotation)) {
+                    isDriving = false;
+                }
+            } else {
+                // Switch in curved position
+                if (checkStopCurveRail(trainRotation, colliderRotation)) {
                     isDriving = false;
                 }
             }
-
-            // Train travelling from left to right
-            if (trainRotation > 135 && trainRotation < 225) {
-                if(colliderRotation != 90 && colliderRotation != 180) {
-                    Debug.Log("Stop F");
-                    isDriving = false;
-                }
-            }
-
-            // Train travelling from top to bottom
-            if (trainRotation > 45 && trainRotation < 135) {
-                if(colliderRotation != 0 && colliderRotation != 90) {
-                    Debug.Log("Stop G");
-                    isDriving = false;
-                }
-            }
-
-            // Train travelling from bottom to top
-            if (trainRotation > 225 && trainRotation < 315) {
-                if(colliderRotation != 180 && colliderRotation != 270) {
-                    Debug.Log("Stop H");
-                    isDriving = false;
-                }
-            }
-
         }
 
         // Collision with direction changer of curveRail
@@ -216,9 +178,85 @@ public class TrainScript : MonoBehaviour
             
             transform.rotation = rotationDirection;
         }
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         collisionCount--;
+
+        // The train should only collide with an object once | As soon as the train leaves the object, disable its collider
+        collision.enabled = false;
+    }
+
+    private bool checkStopStraightRail(double trainRotation, double colliderRotation) {
+        // Train travelling from right to left
+        if (trainRotation < 45 || trainRotation > 315) {
+            if(colliderRotation != 0 && colliderRotation != 180) {
+                Debug.Log("Stop A");
+                return true;
+            }
+        }
+
+        // Train travelling from left to right
+        if (trainRotation > 135 && trainRotation < 225) {
+            if(colliderRotation != 0 && colliderRotation != 180) {
+                Debug.Log("Stop B");
+                return true;
+            }
+        }
+
+        // Train travelling from top to bottom
+        if (trainRotation > 45 && trainRotation < 135) {
+            if(colliderRotation != 90 && colliderRotation != 270) {
+                Debug.Log("Stop C");
+                return true;
+            }
+        }
+
+        // Train travelling from bottom to top
+        if (trainRotation > 225 && trainRotation < 315) {
+            if(colliderRotation != 90 && colliderRotation != 270) {
+                Debug.Log("Stop D");
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private bool checkStopCurveRail(double trainRotation, double colliderRotation) {
+        // Train travelling from right to left
+        if (trainRotation < 45 || trainRotation > 315) {
+            if(colliderRotation != 0 && colliderRotation != 270) {
+                Debug.Log("Stop E");
+                return true;
+            }
+        }
+
+        // Train travelling from left to right
+        if (trainRotation > 135 && trainRotation < 225) {
+            if(colliderRotation != 90 && colliderRotation != 180) {
+                Debug.Log("Stop F");
+                return true;
+            }
+        }
+
+        // Train travelling from top to bottom
+        if (trainRotation > 45 && trainRotation < 135) {
+            if(colliderRotation != 0 && colliderRotation != 90) {
+                Debug.Log("Stop G");
+                return true;
+            }
+        }
+
+        // Train travelling from bottom to top
+        if (trainRotation > 225 && trainRotation < 315) {
+            if(colliderRotation != 180 && colliderRotation != 270) {
+                Debug.Log("Stop H");
+                return true;
+            }
+        }
+
+        return false;
     }
 }
