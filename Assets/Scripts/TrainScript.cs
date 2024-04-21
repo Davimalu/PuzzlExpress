@@ -104,7 +104,7 @@ public class TrainScript : MonoBehaviour
 
         // Collision with direction changer of curveRail
         /* Note: The child of Train (Center Collider) and Curve Rail (Direction Changer) are both on a different layer (curveCollider)
-           This ensures that the middle of the train will collide with the middle of the curve */
+           This ensures that only the collider in the middle of the train (CenterCollider) will collide with the direction changers */
         if (collision.gameObject.tag.Equals("directionChanger") == true)
         {
             // Move train to position of collider (to stop it from leaving the tracks)
@@ -116,7 +116,7 @@ public class TrainScript : MonoBehaviour
 
         // Collision with direction changer of switchRail
         /* Note: The child of Train (Center Collider) and Switch Rail (Direction Changer) are both on a different layer (curveCollider)
-           This ensures that the middle of the train will collide with the middle of the curve */
+           This ensures that only the collider in the middle of the train (CenterCollider) will collide with the direction changers */
         if (collision.gameObject.tag.Equals("switchDirectionChanger") == true)
         {
             switchScript = collision.transform.parent.gameObject.GetComponent<switchScript>(); 
@@ -216,7 +216,6 @@ public class TrainScript : MonoBehaviour
     {
         // Colliding with curveRail that is not rotated
         if ((Mathf.Round(collision.transform.parent.rotation.eulerAngles.z) % 360) == 0) {
-            Debug.Log("0");
 
             // Train travelling from right to left
             if (trainRotation >= 0 && trainRotation < 45 || trainRotation > 270 && trainRotation <= 360) {
@@ -231,7 +230,6 @@ public class TrainScript : MonoBehaviour
 
         // Colliding with curveRail that is rotated 90°
         if ((Mathf.Round(collision.transform.parent.rotation.eulerAngles.z) % 360) == 90) {
-            Debug.Log("90");
 
             // Train travelling from left to right
             if (trainRotation >= 180 && trainRotation <= 270) {
@@ -246,7 +244,6 @@ public class TrainScript : MonoBehaviour
 
         // Colliding with curveRail that is rotated 180°
         if ((Mathf.Round(collision.transform.parent.rotation.eulerAngles.z) % 360) == 180) {
-            Debug.Log("180");
 
             // Train travelling from bottom to top
             if (trainRotation >= 225 && trainRotation <= 360) {
@@ -261,18 +258,14 @@ public class TrainScript : MonoBehaviour
 
         // Colliding with curveRail that is rotated 270°
         if ((Mathf.Round(collision.transform.parent.rotation.eulerAngles.z) % 360) == 270) {
-            Debug.Log("270");
 
             // Train travelling from right to left
             if (trainRotation < 90 || trainRotation > 315) {
-                Debug.Log("A");
                 return Quaternion.Euler(0, 0, (Mathf.Round(collision.transform.rotation.eulerAngles.z - 180)));
             }
 
             // Train travelling from bottom to top
             if (trainRotation > 180 && trainRotation < 315) {
-                Debug.Log("B");
-                Debug.Log(Mathf.Round(collision.transform.rotation.eulerAngles.z));
                 return Quaternion.Euler(0, 0, (Mathf.Round(collision.transform.rotation.eulerAngles.z)));
             }
         }
