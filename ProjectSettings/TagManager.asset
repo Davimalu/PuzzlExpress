@@ -10,6 +10,8 @@ TagManager:
   - train
   - stationEnd
   - trainStation
+  - switchRail
+  - switchDirectionChanger
   layers:
   - Default
   - TransparentFX

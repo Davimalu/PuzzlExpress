@@ -18,6 +18,10 @@ public class TrainScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Disable Vsync and limit frames to 60 FPS
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
+
         // Get RigidBody Component
         train_RigidBody = GetComponent<Rigidbody2D>();
 
@@ -78,7 +82,6 @@ public class TrainScript : MonoBehaviour
             if (checkStopCurveRail(trainRotation, colliderRotation)) {
                 isDriving = false;
             }
-            Debug.Log(collision);
         }
 
         // Collision with switch
@@ -104,80 +107,29 @@ public class TrainScript : MonoBehaviour
            This ensures that the middle of the train will collide with the middle of the curve */
         if (collision.gameObject.tag.Equals("directionChanger") == true)
         {
-            Quaternion rotationDirection = Quaternion.Euler(0, 0, 0);
+            // Move train to position of collider (to stop it from leaving the tracks)
+            transform.position = new Vector3 (collision.transform.position.x, collision.transform.position.y, 0);
 
-            // Colliding with curveRail that is not rotated
-            if ((Mathf.Round(collision.transform.parent.rotation.eulerAngles.z) % 360) == 0) {
-                
-                // Train travelling from right to left
-                if (trainRotation >= 0 && trainRotation < 45 || trainRotation > 270 && trainRotation <= 360) {
-                    rotationDirection = Quaternion.Euler(0, 0, Mathf.Round(collision.transform.rotation.eulerAngles.z));
-                }
-                
-                // Train travelling from top to bottom
-                if (trainRotation > 45 && trainRotation < 180) {
-                    rotationDirection = Quaternion.Euler(0, 0, (Mathf.Round(collision.transform.rotation.eulerAngles.z) - 180));
-                }
-
-                // Move train to position of collider (to stop it from leaving the tracks)
-                transform.position = new Vector3 (collision.transform.position.x, collision.transform.position.y, 0);
-            }
-
-            // Colliding with curveRail that is rotated 90°
-            if ((Mathf.Round(collision.transform.parent.rotation.eulerAngles.z) % 360) == 90) {
-                rotationDirection = Quaternion.Euler(0, 0, Mathf.Round(collision.transform.rotation.eulerAngles.z));
-
-                // Train travelling from left to right
-                if (trainRotation >= 180 && trainRotation <= 270) {
-                    rotationDirection = Quaternion.Euler(0, 0, (Mathf.Round(collision.transform.rotation.eulerAngles.z - 180)));
-                }
-
-                // Train travelling from top to bottom
-                if (trainRotation > 0 && trainRotation < 180) {
-                    rotationDirection = Quaternion.Euler(0, 0, (Mathf.Round(collision.transform.rotation.eulerAngles.z)));
-                }
-
-                // Move train to position of collider (to stop it from leaving the tracks)
-                transform.position = new Vector3 (collision.transform.position.x, collision.transform.position.y, 0);
-            }
-
-            // Colliding with curveRail that is rotated 180°
-            if ((Mathf.Round(collision.transform.parent.rotation.eulerAngles.z) % 360) == 180) {
-                rotationDirection = Quaternion.Euler(0, 0, Mathf.Round(collision.transform.rotation.eulerAngles.z));
-
-                // Train travelling from bottom to top
-                if (trainRotation >= 225 && trainRotation <= 360) {
-                    rotationDirection = Quaternion.Euler(0, 0, (Mathf.Round(collision.transform.rotation.eulerAngles.z - 180)));
-                }
-                
-                // Train travelling from left to right
-                if (trainRotation >= 90 && trainRotation < 225) {
-                    rotationDirection = Quaternion.Euler(0, 0, (Mathf.Round(collision.transform.rotation.eulerAngles.z)));
-                }
-
-                // Move train to position of collider (to stop it from leaving the tracks)
-                transform.position = new Vector3 (collision.transform.position.x, collision.transform.position.y, 0);
-            }
-
-            // Colliding with curveRail that is rotated 270°
-            if ((Mathf.Round(collision.transform.parent.rotation.eulerAngles.z) % 360) == 270) {
-
-                // Train travelling from right to left
-                if (trainRotation >= 0 && trainRotation <= 90 || trainRotation >= 270 && trainRotation <= 360) {
-                    rotationDirection = Quaternion.Euler(0, 0, (Mathf.Round(collision.transform.rotation.eulerAngles.z - 180)));
-                }
-
-                // Train travelling from bottom to top
-                if (trainRotation >= 180 && trainRotation <= 360) {
-                    rotationDirection = Quaternion.Euler(0, 0, (Mathf.Round(collision.transform.rotation.eulerAngles.z)));
-                }
-                
-                // Move train to position of collider (to stop it from leaving the tracks)
-                transform.position = new Vector3 (collision.transform.position.x, collision.transform.position.y, 0);
-            }
-            
+            Quaternion rotationDirection = getRotationAlongCurve(trainRotation, collision);
             transform.rotation = rotationDirection;
         }
+
+        // Collision with direction changer of switchRail
+        /* Note: The child of Train (Center Collider) and Switch Rail (Direction Changer) are both on a different layer (curveCollider)
+           This ensures that the middle of the train will collide with the middle of the curve */
+        if (collision.gameObject.tag.Equals("switchDirectionChanger") == true)
+        {
+            switchScript = collision.transform.parent.gameObject.GetComponent<switchScript>(); 
+            
+            if (switchScript.switched == true) {
+                // Move train to position of collider (to stop it from leaving the tracks)
+                transform.position = new Vector3 (collision.transform.position.x, collision.transform.position.y, 0);
+
+                Quaternion rotationDirection = getRotationAlongCurve(trainRotation, collision);
+                transform.rotation = rotationDirection;
+            }
+        }
+
 
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -259,4 +211,73 @@ public class TrainScript : MonoBehaviour
 
         return false;
     }
+
+    private Quaternion getRotationAlongCurve(double trainRotation, Collider2D collision)
+    {
+        // Colliding with curveRail that is not rotated
+        if ((Mathf.Round(collision.transform.parent.rotation.eulerAngles.z) % 360) == 0) {
+            Debug.Log("0");
+
+            // Train travelling from right to left
+            if (trainRotation >= 0 && trainRotation < 45 || trainRotation > 270 && trainRotation <= 360) {
+                return Quaternion.Euler(0, 0, Mathf.Round(collision.transform.rotation.eulerAngles.z));
+            }
+            
+            // Train travelling from top to bottom
+            if (trainRotation > 45 && trainRotation < 180) {
+                return Quaternion.Euler(0, 0, (Mathf.Round(collision.transform.rotation.eulerAngles.z) - 180));
+            }
+        }
+
+        // Colliding with curveRail that is rotated 90°
+        if ((Mathf.Round(collision.transform.parent.rotation.eulerAngles.z) % 360) == 90) {
+            Debug.Log("90");
+
+            // Train travelling from left to right
+            if (trainRotation >= 180 && trainRotation <= 270) {
+                return Quaternion.Euler(0, 0, (Mathf.Round(collision.transform.rotation.eulerAngles.z - 180)));
+            }
+
+            // Train travelling from top to bottom
+            if (trainRotation > 0 && trainRotation < 180) {
+                return Quaternion.Euler(0, 0, (Mathf.Round(collision.transform.rotation.eulerAngles.z)));
+            }
+        }
+
+        // Colliding with curveRail that is rotated 180°
+        if ((Mathf.Round(collision.transform.parent.rotation.eulerAngles.z) % 360) == 180) {
+            Debug.Log("180");
+
+            // Train travelling from bottom to top
+            if (trainRotation >= 225 && trainRotation <= 360) {
+                return Quaternion.Euler(0, 0, (Mathf.Round(collision.transform.rotation.eulerAngles.z - 180)));
+            }
+            
+            // Train travelling from left to right
+            if (trainRotation >= 90 && trainRotation < 225) {
+                return Quaternion.Euler(0, 0, (Mathf.Round(collision.transform.rotation.eulerAngles.z)));
+            }
+        }
+
+        // Colliding with curveRail that is rotated 270°
+        if ((Mathf.Round(collision.transform.parent.rotation.eulerAngles.z) % 360) == 270) {
+            Debug.Log("270");
+
+            // Train travelling from right to left
+            if (trainRotation < 90 || trainRotation > 315) {
+                Debug.Log("A");
+                return Quaternion.Euler(0, 0, (Mathf.Round(collision.transform.rotation.eulerAngles.z - 180)));
+            }
+
+            // Train travelling from bottom to top
+            if (trainRotation > 180 && trainRotation < 315) {
+                Debug.Log("B");
+                Debug.Log(Mathf.Round(collision.transform.rotation.eulerAngles.z));
+                return Quaternion.Euler(0, 0, (Mathf.Round(collision.transform.rotation.eulerAngles.z)));
+            }
+        }
+
+        return Quaternion.Euler(0, 0, 0);
+    }
 }
+
