@@ -12,6 +12,7 @@ TagManager:
   - trainStation
   - switchRail
   - switchDirectionChanger
+  - star
   layers:
   - Default
   - TransparentFX

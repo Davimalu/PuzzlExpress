@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -11,6 +12,7 @@ public class TrainScript : MonoBehaviour
     public bool isDriving;
     private int collisionCount = 0;
     public float speed;
+    private bool isInStation = false;
 
     private switchScript switchScript;
 
@@ -44,7 +46,6 @@ public class TrainScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("klick auf Zug");
         isDriving = true;
     }
 
@@ -56,22 +57,34 @@ public class TrainScript : MonoBehaviour
 
         collisionCount++;
 
+        if (collision.gameObject.tag.Equals("star") == true)
+        {
+            Destroy(collision.gameObject);
+            PlayerPrefs.SetInt("stars", PlayerPrefs.GetInt("stars") + 1);
+        }
+
         if (collision.gameObject.tag.Equals("trainStation") == true)
         {
-            GameObject.Find("Panel").GetComponent<Animator>().SetBool("show", true);
+            GameObject.Find("WonPanel").GetComponent<Animator>().SetBool("show", true);
+            isInStation = true;
         }
 
         if (collision.gameObject.tag.Equals("stationEnd") == true)
         {
+            if (!isInStation)
+            {
+                gameOver();
+            }
             isDriving = false;
         }
 
-        // Collision with straigt rail
+        // Collision with straight rail
         if (collision.gameObject.tag.Equals("straightRail") == true)
         {
             // If the rotation of the rail is too different from the rotation of the train -> Stop the train
             if (checkStopStraightRail(trainRotation, colliderRotation)) {
                 isDriving = false;
+                gameOver();
             }
         }
 
@@ -81,6 +94,7 @@ public class TrainScript : MonoBehaviour
             // If the rotation of the curve rail is too different than the rotation of the train -> Stop the train 
             if (checkStopCurveRail(trainRotation, colliderRotation)) {
                 isDriving = false;
+                gameOver();
             }
         }
 
@@ -93,11 +107,13 @@ public class TrainScript : MonoBehaviour
             if (switchScript.switched == false) {
                 if (checkStopStraightRail(trainRotation, colliderRotation)) {
                     isDriving = false;
+                    gameOver();
                 }
             } else {
                 // Switch in curved position
                 if (checkStopCurveRail(trainRotation, colliderRotation)) {
                     isDriving = false;
+                    gameOver();
                 }
             }
         }
@@ -132,6 +148,13 @@ public class TrainScript : MonoBehaviour
 
 
     }
+
+    private void gameOver()
+    {
+        Debug.Log("Game Over!");
+        GameObject.Find("GameOverPanel").GetComponent<Animator>().SetBool("show", true);
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         collisionCount--;
