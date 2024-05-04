@@ -5,6 +5,7 @@ using UnityEngine;
 public class CurvedRailScript : MonoBehaviour
 {
     private TrainScript trainScript;
+    public AudioSource clickSound;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,8 @@ public class CurvedRailScript : MonoBehaviour
             // See https://discussions.unity.com/t/add-90-degrees-to-transform-rotation/31852
             Quaternion rotationDirection = transform.rotation * Quaternion.Euler(0, 0, 90);
             transform.rotation = rotationDirection;
+
+            clickSound.Play();
         }
     }
 }

@@ -9,6 +9,7 @@ public class switchScript : MonoBehaviour
     public Sprite pos1;
     public Sprite pos2;
     private TrainScript trainScript;
+    public AudioSource clickSound;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,8 @@ public class switchScript : MonoBehaviour
         if (trainScript.isDriving == false)
         {
             switched = !switched;
+
+            clickSound.Play();
         }
     }
 }
