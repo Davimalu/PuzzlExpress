@@ -18,6 +18,9 @@ public class TrainScript : MonoBehaviour
 
     public AudioSource trainHorn;
     public AudioSource drivingSound;
+    public AudioSource starCollect;
+    public AudioSource winSound;
+    public AudioSource crashSound;
 
 
     // Start is called before the first frame update
@@ -67,14 +70,21 @@ public class TrainScript : MonoBehaviour
 
         collisionCount++;
 
+        // Collision with star
         if (collision.gameObject.tag.Equals("star") == true)
         {
+            starCollect.Play();
+
             Destroy(collision.gameObject);
             PlayerPrefs.SetInt("stars", PlayerPrefs.GetInt("stars") + 1);
         }
 
+        // Collision with trainStation - Win Game
         if (collision.gameObject.tag.Equals("trainStation") == true)
         {
+            Debug.Log("Win!");
+            winSound.Play();
+
             GameObject.Find("WonPanel").GetComponent<Animator>().SetBool("show", true);
             isInStation = true;
         }
@@ -169,6 +179,8 @@ public class TrainScript : MonoBehaviour
 
     private void gameOver()
     {
+        crashSound.Play();
+
         Debug.Log("Game Over!");
         GameObject.Find("GameOverPanel").GetComponent<Animator>().SetBool("show", true);
     }
@@ -179,6 +191,11 @@ public class TrainScript : MonoBehaviour
 
         // The train should only collide with an object once | As soon as the train leaves the object, disable its collider
         collision.enabled = false;
+
+        if (collisionCount == 0)
+        {
+            gameOver();
+        }
     }
 
     private bool checkStopStraightRail(double trainRotation, double colliderRotation)
