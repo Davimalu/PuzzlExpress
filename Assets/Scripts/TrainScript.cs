@@ -95,6 +95,11 @@ public class TrainScript : MonoBehaviour
             {
                 gameOver();
             }
+            else
+            {
+                PlayerPrefs.SetInt("UnlockedLevels", PlayerPrefs.GetInt("UnlockedLevels") + 1);
+            }
+
             isDriving = false;
         }
 
