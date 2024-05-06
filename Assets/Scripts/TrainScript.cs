@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
 public class TrainScript : MonoBehaviour
@@ -75,6 +77,13 @@ public class TrainScript : MonoBehaviour
         {
             starCollect.Play();
 
+            int starId = Convert.ToInt32(collision.gameObject.name);
+            int currLevel = GameObject.Find("LevelManager").GetComponent<LevelScript>().currLevel;
+            string collectedIds = PlayerPrefs.GetString("Level" + currLevel, "");
+            if (collectedIds.Length > 0)
+                collectedIds += ",";
+            collectedIds += starId;
+            PlayerPrefs.SetString("Level" + currLevel, collectedIds);
             Destroy(collision.gameObject);
             PlayerPrefs.SetInt("stars", PlayerPrefs.GetInt("stars") + 1);
         }
@@ -97,7 +106,7 @@ public class TrainScript : MonoBehaviour
             }
             else
             {
-                PlayerPrefs.SetInt("UnlockedLevels", PlayerPrefs.GetInt("UnlockedLevels") + 1);
+                won();
             }
 
             isDriving = false;
@@ -178,16 +187,27 @@ public class TrainScript : MonoBehaviour
                 transform.rotation = rotationDirection;
             }
         }
-
-
     }
 
     private void gameOver()
     {
-        crashSound.Play();
+        Debug.Log("Game Over");
 
-        Debug.Log("Game Over!");
-        GameObject.Find("GameOverPanel").GetComponent<Animator>().SetBool("show", true);
+        crashSound.Play();
+        if (GameObject.Find("GameOverPanel"))
+            GameObject.Find("GameOverPanel").GetComponent<Animator>().SetBool("show", true);
+    }
+
+    private void won()
+    {
+        if (GameObject.Find("LevelManager")) return;
+        int currLevel = GameObject.Find("LevelManager").GetComponent<LevelScript>().currLevel;
+        int unlockedLevels = PlayerPrefs.GetInt("UnlockedLevels");
+        if (currLevel == unlockedLevels)
+        {
+            unlockedLevels++;
+            PlayerPrefs.SetInt("UnlockedLevels", unlockedLevels);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
