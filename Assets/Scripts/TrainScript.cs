@@ -18,6 +18,8 @@ public class TrainScript : MonoBehaviour
 
     private switchScript switchScript;
 
+    public Sprite[] skins;
+
     public AudioSource trainHorn;
     public AudioSource drivingSound;
     public AudioSource starCollect;
@@ -34,6 +36,9 @@ public class TrainScript : MonoBehaviour
 
         // Get RigidBody Component
         train_RigidBody = GetComponent<Rigidbody2D>();
+
+        Debug.Log(PlayerPrefs.GetInt("skin"));
+        GetComponent<SpriteRenderer>().sprite = skins[PlayerPrefs.GetInt("skin")];
 
         isDriving = false;
     }
@@ -91,7 +96,6 @@ public class TrainScript : MonoBehaviour
         // Collision with trainStation - Win Game
         if (collision.gameObject.tag.Equals("trainStation") == true)
         {
-            Debug.Log("Win!");
             winSound.Play();
 
             GameObject.Find("WonPanel").GetComponent<Animator>().SetBool("show", true);
@@ -191,22 +195,26 @@ public class TrainScript : MonoBehaviour
 
     private void gameOver()
     {
-        Debug.Log("Game Over");
+        Debug.Log("Game over");
 
+        if (GameObject.Find("GameOverPanel") == null) return;
+        
         crashSound.Play();
-        if (GameObject.Find("GameOverPanel"))
-            GameObject.Find("GameOverPanel").GetComponent<Animator>().SetBool("show", true);
+        GameObject.Find("GameOverPanel").GetComponent<Animator>().SetBool("show", true);
     }
 
     private void won()
     {
-        if (GameObject.Find("LevelManager")) return;
+        if (GameObject.Find("LevelManager") == null) return;
+
         int currLevel = GameObject.Find("LevelManager").GetComponent<LevelScript>().currLevel;
         int unlockedLevels = PlayerPrefs.GetInt("UnlockedLevels");
+        Debug.Log(currLevel + " " + unlockedLevels + " " + (currLevel == unlockedLevels));
         if (currLevel == unlockedLevels)
         {
             unlockedLevels++;
             PlayerPrefs.SetInt("UnlockedLevels", unlockedLevels);
+            Debug.Log(PlayerPrefs.GetInt("UnnlockedLevels").ToString());
         }
     }
 

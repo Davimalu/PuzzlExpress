@@ -28,7 +28,7 @@ public class LevelSelectMenu : MonoBehaviour
             levelButtons[i] = buttonWrapper.GetChild(i).GetComponent<Button>();
         }
 
-        UnlockedLevels = PlayerPrefs.GetInt("UnlockedLevels", 0);
+        UnlockedLevels = PlayerPrefs.GetInt("UnlockedLevels") - 1;
 
         for (int i = 0; i < levelButtons.Length; i++)
         {

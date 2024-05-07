@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Mainmenu : MonoBehaviour
 {
+    void Start()
+    {
+        if (!PlayerPrefs.HasKey("UnlockedLevels"))
+            PlayerPrefs.SetInt("UnlockedLevels", 1);
+    }
+
     public void goToStart()
     {
         if (PlayerPrefs.HasKey("UnlockedLevels"))

@@ -15,10 +15,8 @@ public class LevelScript : MonoBehaviour
     void Start()
     {
         string stars = PlayerPrefs.GetString("Level" + currLevel);
-        Debug.Log(stars);
 
         string[] starIds = stars.Split(',');
-        Debug.Log(starIds[0]);
 
         for (int i = 0; i < starPositions.Length; i++)
         {
