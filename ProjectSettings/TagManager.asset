@@ -14,6 +14,7 @@ TagManager:
   - switchDirectionChanger
   - star
   - bufferStop
+  - blockedRail
   layers:
   - Default
   - TransparentFX

@@ -170,6 +170,13 @@ public class TrainScript : MonoBehaviour
             gameOver();
         }
 
+        // Collision with blockedRail
+        if (collision.gameObject.tag.Equals("blockedRail") == true)
+        {
+            isDriving = false;
+            gameOver();
+        }
+
         // Collision with direction changer of curveRail
         /* Note: The child of Train (Center Collider) and Curve Rail (Direction Changer) are both on a different layer (curveCollider)
            This ensures that only the collider in the middle of the train (CenterCollider) will collide with the direction changers */
