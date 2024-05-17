@@ -10,11 +10,13 @@ public class switchScript : MonoBehaviour
     public Sprite pos2;
     private TrainScript trainScript;
     public AudioSource clickSound;
+    public UIScript UIScript;
 
     // Start is called before the first frame update
     void Start()
     {
         trainScript = GameObject.FindGameObjectWithTag("train").GetComponent<TrainScript>();
+        UIScript = GameObject.Find("Canvas").GetComponent<UIScript>();
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class switchScript : MonoBehaviour
     private void OnMouseDown()
     {
         // Switching only possible if the train is not driving
-        if (trainScript.isDriving == false)
+        if (trainScript.isDriving == false && UIScript.gameIsPaused == false)
         {
             switched = !switched;
 

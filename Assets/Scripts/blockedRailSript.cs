@@ -10,6 +10,7 @@ public class blockedRailSript : MonoBehaviour
     private AudioSource chainsaw;
     public AudioClip audioStrip;
     public Animator chainsawAniamator;
+    public UIScript UIScript;
 
 
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class blockedRailSript : MonoBehaviour
     {
         trainScript = GameObject.FindGameObjectWithTag("train").GetComponent<TrainScript>();
         chainsawAniamator = gameObject.transform.GetChild(1).GetComponent<Animator>();
+        UIScript = GameObject.Find("Canvas").GetComponent<UIScript>();
     }
 
     // Update is called once per frame
@@ -30,7 +32,7 @@ public class blockedRailSript : MonoBehaviour
         Debug.Log("Klick auf blockierte Schiene");
 
         // Removing tree only possible if the train is not driving
-        if (trainScript.isDriving == false)
+        if (trainScript.isDriving == false && UIScript.gameIsPaused == false)
         {
             // Play chainsaw animation
             var chainsawObj = gameObject.transform.GetChild(1).gameObject;

@@ -25,11 +25,14 @@ public class TrainScript : MonoBehaviour
     public AudioSource starCollect;
     public AudioSource winSound;
     public AudioSource crashSound;
+    public UIScript UIScript;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        UIScript = GameObject.Find("Canvas").GetComponent<UIScript>();
+
         // Disable Vsync and limit frames to 60 FPS
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
@@ -63,10 +66,13 @@ public class TrainScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        isDriving = true;
+        if (UIScript.gameIsPaused == false)
+        {
+            isDriving = true;
 
-        trainHorn.Play();
-        drivingSound.Play();
+            trainHorn.Play();
+            drivingSound.Play();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
