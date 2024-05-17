@@ -163,6 +163,13 @@ public class TrainScript : MonoBehaviour
             }
         }
 
+        // Collision with bufferStop
+        if (collision.gameObject.tag.Equals("bufferStop") == true)
+        {
+            isDriving = false;
+            gameOver();
+        }
+
         // Collision with direction changer of curveRail
         /* Note: The child of Train (Center Collider) and Curve Rail (Direction Changer) are both on a different layer (curveCollider)
            This ensures that only the collider in the middle of the train (CenterCollider) will collide with the direction changers */
@@ -198,7 +205,7 @@ public class TrainScript : MonoBehaviour
         Debug.Log("Game over");
 
         if (GameObject.Find("GameOverPanel") == null) return;
-        
+
         crashSound.Play();
         GameObject.Find("GameOverPanel").GetComponent<Animator>().SetBool("show", true);
     }

@@ -13,6 +13,7 @@ TagManager:
   - switchRail
   - switchDirectionChanger
   - star
+  - bufferStop
   layers:
   - Default
   - TransparentFX
