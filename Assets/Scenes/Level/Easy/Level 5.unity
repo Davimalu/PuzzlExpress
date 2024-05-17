@@ -1634,8 +1634,30 @@ PrefabInstance:
     - {fileID: 6118428676993489282, guid: 419122acb9fb0494c955540a6acddb6b, type: 3}
     - {fileID: 5218628096197333157, guid: 419122acb9fb0494c955540a6acddb6b, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3072272459392367043, guid: 419122acb9fb0494c955540a6acddb6b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1917857831}
   m_SourcePrefab: {fileID: 100100000, guid: 419122acb9fb0494c955540a6acddb6b, type: 3}
+--- !u!1 &1917857830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3072272459392367043, guid: 419122acb9fb0494c955540a6acddb6b, type: 3}
+  m_PrefabInstance: {fileID: 1917857829}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1917857831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917857830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca58813ed2b3d45489ea19dbc463b155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tutorialTextLines:
+  - Benutze dein neu gelerntes Wissen.
 --- !u!1001 &1985039893
 PrefabInstance:
   m_ObjectHideFlags: 0

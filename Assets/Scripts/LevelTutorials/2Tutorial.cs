@@ -29,12 +29,22 @@ public class TutorialLevel2 : MonoBehaviour
         Debug.Log("Tutorial started");
         Debug.Log("Tutorial Line - 1");
         //_group.alpha = 0;
+        if (_tutorialTextLines.Count > 0) {
+            if (_text == null) {
+                _text = GetComponent<TMP_Text>();
+            }
+            StartCoroutine (TextTypingEffect());
+            //_text.SetText(_tutorialTextLines[0]);
+            _lineIndex++;
+        }
     }
 
     private void Update()
     {
         if (rails[0].transform.rotation.eulerAngles.z == 180 && isTutorialStillRunning == true) {
-            _text.SetText(_tutorialTextLines[_lineIndex++]);
+            //_text.SetText(_tutorialTextLines[_lineIndex++]);
+            StartCoroutine (TextTypingEffect());
+            _lineIndex++;
             Debug.Log("Tutorial Line - " + _lineIndex);
             Debug.Log("Tutorial finished.");
             this.GetComponent<BoxCollider2D>().enabled = false;
@@ -52,11 +62,21 @@ public class TutorialLevel2 : MonoBehaviour
 
     IEnumerator ShowArrows()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(2f);
         _arrows[0].SetActive(true);
     }
 
-    private void OnValidate()
+    IEnumerator TextTypingEffect()
+    {
+        string text = "";
+        foreach (char c in _tutorialTextLines[_lineIndex]) {
+            text += c;
+            _text.SetText(text);
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    /*private void OnValidate()
     {
         if (_tutorialTextLines.Count > 0) {
             if (_text == null) {
@@ -65,13 +85,15 @@ public class TutorialLevel2 : MonoBehaviour
             _text.SetText(_tutorialTextLines[0]);
             _lineIndex++;
         }
-    }
+    }*/
 
 
     private void OnMouseDown()
     {
         if (_lineIndex < _tutorialTextLines.Count - 1) {
-            _text.SetText(_tutorialTextLines[_lineIndex++]);
+            //_text.SetText(_tutorialTextLines[_lineIndex++]);
+            StartCoroutine (TextTypingEffect());
+            _lineIndex++;
             Debug.Log("Tutorial Line - " + _lineIndex);
             switch (_lineIndex) {
                 case 2: {

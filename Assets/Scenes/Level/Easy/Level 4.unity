@@ -1748,7 +1748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7348343737953205205, guid: 419122acb9fb0494c955540a6acddb6b, type: 3}
       propertyPath: m_text
-      value: Hey, es ist Zeit, dir die neue Schiene zu zeigen.
+      value: Es ist Zeit, dir die neue Schiene zu zeigen.
       objectReference: {fileID: 0}
     - target: {fileID: 8171036525702914398, guid: 419122acb9fb0494c955540a6acddb6b, type: 3}
       propertyPath: m_AnchoredPosition.y

@@ -5659,8 +5659,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8559706422042835090, guid: 627c81737c0e62d408b72988bbe42fc9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5546000985823029417}
   m_SourcePrefab: {fileID: 100100000, guid: 627c81737c0e62d408b72988bbe42fc9, type: 3}
+--- !u!1 &5546000985823029416 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8559706422042835090, guid: 627c81737c0e62d408b72988bbe42fc9, type: 3}
+  m_PrefabInstance: {fileID: 5546000985823029415}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5546000985823029417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5546000985823029416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca58813ed2b3d45489ea19dbc463b155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tutorialTextLines:
+  - Jetzt kannst du alles, was du gelernt hast, anwenden! Sei mutig und probiere
+    es aus.
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
