@@ -23,4 +23,9 @@ public class Mainmenu : MonoBehaviour
     {
         SceneManager.LoadScene("Shop");
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
