@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1847297242541034121}
   - component: {fileID: 5469066994313536389}
   m_Layer: 0
-  m_Name: blockedRail
+  m_Name: BlockedRail
   m_TagString: blockedRail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,6 +177,7 @@ MonoBehaviour:
   obj: {fileID: 3151827310365644041}
   audioStrip: {fileID: 8300000, guid: 9fc3a1e75525b9a479f108e7cd718b71, type: 3}
   chainsawAniamator: {fileID: 0}
+  UIScript: {fileID: 0}
 --- !u!82 &5469066994313536389
 AudioSource:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class StraightRailScript : MonoBehaviour
     private bool collidingWithTrain;
     public UIScript UIScript;
     public AudioSource clickSound;
+    public bool isRotateable = true;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +27,8 @@ public class StraightRailScript : MonoBehaviour
     {
         Debug.Log("Klick auf gerade Schiene");
 
-        // Rotation only possible if the train is not driving and the train is not standing on that track
-        if (trainScript.isDriving == false && collidingWithTrain == false && UIScript.gameIsPaused == false)
+        // Rotation only possible if the train is not driving, the train is not standing on that track and rail is clickable
+        if (trainScript.isDriving == false && collidingWithTrain == false && UIScript.gameIsPaused == false && isRotateable == true)
         {
             // See https://discussions.unity.com/t/add-90-degrees-to-transform-rotation/31852
             Quaternion rotationDirection = transform.rotation * Quaternion.Euler(0, 0, 90);
