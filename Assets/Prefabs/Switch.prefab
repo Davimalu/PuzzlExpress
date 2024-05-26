@@ -396,12 +396,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5e69586fae8fb5f49bbb1326e97213c2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f882e589f9b3f94a92d826453fa36c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.24, y: 10.24}
+  m_Size: {x: 10.63, y: 10.63}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -421,8 +421,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switched: 0
   spriteRenderer: {fileID: 5450656760329314903}
-  pos1: {fileID: 21300000, guid: 5e69586fae8fb5f49bbb1326e97213c2, type: 3}
-  pos2: {fileID: 21300000, guid: f46f2e43d93521e46ad86023a31eea2a, type: 3}
+  pos1: {fileID: 21300000, guid: 4f882e589f9b3f94a92d826453fa36c3, type: 3}
+  pos2: {fileID: 21300000, guid: da3b51abe645b1e498daf84302f1a480, type: 3}
   clickSound: {fileID: 6676757959605077955}
   UIScript: {fileID: 0}
   isMirrored: 0
@@ -464,7 +464,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 10.63, y: 10.63}
-    newSize: {x: 10.24, y: 10.24}
+    newSize: {x: 10.63, y: 10.63}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
