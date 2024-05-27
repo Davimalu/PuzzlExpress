@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEditor.PlayerSettings;
 
 public class LevelScript : MonoBehaviour
 {
@@ -12,8 +11,15 @@ public class LevelScript : MonoBehaviour
 
     public Vector3[] starPositions;
 
+    private Animator lok, maincamera;
+
     void Start()
     {
+        lok = GameObject.Find("lok").GetComponent<Animator>();
+        maincamera = GameObject.Find("Main Camera").GetComponent<Animator>();
+
+        openScene();
+
         string stars = PlayerPrefs.GetString("Level" + currLevel);
 
         string[] starIds = stars.Split(',');
@@ -27,5 +33,17 @@ public class LevelScript : MonoBehaviour
                 newStar.name = (i + 1).ToString();
             }
         }
+    }
+
+    void openScene()
+    {
+        lok.Play("lok_in");
+        maincamera.Play("scene_in");
+    }
+
+    public void closeScene()
+    {
+        lok.Play("lok_out");
+        maincamera.Play("scene_out");
     }
 }

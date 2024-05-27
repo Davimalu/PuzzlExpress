@@ -8,9 +8,14 @@ public class UIScript : MonoBehaviour
     public static bool gameIsPaused = false;
     public TrainScript trainScript;
     public GameObject pauseMenuUI;
+    public Animator wonPanel;
+    public Animator losePanel;
+
+    private LevelScript levelScript;
 
     void Start()
     {
+        levelScript = GameObject.Find("LevelManager").GetComponent<LevelScript>();
         trainScript = GameObject.Find("Train").GetComponent<TrainScript>();
     }
 
@@ -50,28 +55,42 @@ public class UIScript : MonoBehaviour
         trainScript.drivingSound.Pause();
     }
 
+    IEnumerator waiter(string scene)
+    {
+        wonPanel.SetBool("show", false);
+        losePanel.SetBool("show", false);
+        levelScript.closeScene();
+
+        yield return new WaitForSeconds(5);
+
+        SceneManager.LoadScene(scene);
+    }
+
     public void retry()
     {
         resume();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        StartCoroutine(waiter(SceneManager.GetActiveScene().name));
     }
 
     public void backToLevelSelect()
     {
         resume();
-        SceneManager.LoadScene("Levelmenu");
+
+        StartCoroutine(waiter("Levelmenu"));
     }
 
     public void backToMainMenu()
     {
         resume();
-        SceneManager.LoadScene("Mainmenu");
+
+        StartCoroutine(waiter("Mainmenu"));
     }
 
     public void goToNextLevel()
     {
         int currLevel = GameObject.Find("LevelManager").GetComponent<LevelScript>().currLevel;
-        SceneManager.LoadScene("Level " + (currLevel + 1));
+        StartCoroutine(waiter("Level " + (currLevel + 1)));
     }
 
     public void quit()
