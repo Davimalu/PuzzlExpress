@@ -802,9 +802,9 @@ MonoBehaviour:
   currLevel: 19
   starPrefab: {fileID: 8031868725272188793, guid: b5e0378098fc372e2a7d22e15fc5841c, type: 3}
   starPositions:
-  - {x: -14, y: 1, z: 0}
-  - {x: -7, y: 0, z: 0}
-  - {x: -4, y: -2, z: 0}
+  - {x: -2, y: 1, z: 0}
+  - {x: 2, y: -3, z: 0}
+  - {x: -4, y: -1, z: 0}
 --- !u!4 &848251853
 Transform:
   m_ObjectHideFlags: 0

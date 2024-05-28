@@ -759,12 +759,15 @@ MonoBehaviour:
   - id: 1
     skin: {fileID: 21300000, guid: f624de01954f27745bf8e2f957bf432c, type: 3}
     stars: 10
+  - id: 3
+    skin: {fileID: 21300000, guid: bf99d26f9976fe345924ceefa7287c09, type: 3}
+    stars: 20
   - id: 2
     skin: {fileID: 21300000, guid: e6b0f32701dadd34e883c2819b6106fb, type: 3}
-    stars: 20
+    stars: 30
   - id: 3
     skin: {fileID: 21300000, guid: d4075cb51578844409cc17e20db272ad, type: 3}
-    stars: 30
+    stars: 40
   wrapper: {fileID: 44314554}
 --- !u!1 &837140468
 GameObject:

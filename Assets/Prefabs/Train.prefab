@@ -259,6 +259,7 @@ MonoBehaviour:
   skins:
   - {fileID: 21300000, guid: 8e6d09226863f1a48be40d63a03ae284, type: 3}
   - {fileID: 21300000, guid: f624de01954f27745bf8e2f957bf432c, type: 3}
+  - {fileID: 21300000, guid: bf99d26f9976fe345924ceefa7287c09, type: 3}
   - {fileID: 21300000, guid: e6b0f32701dadd34e883c2819b6106fb, type: 3}
   - {fileID: 21300000, guid: d4075cb51578844409cc17e20db272ad, type: 3}
   trainHorn: {fileID: 3843207895543743726}
@@ -266,6 +267,7 @@ MonoBehaviour:
   starCollect: {fileID: 7777518562517496735}
   winSound: {fileID: 371068362883836121}
   crashSound: {fileID: 3118784605063633267}
+  UIScript: {fileID: 0}
 --- !u!82 &3843207895543743726
 AudioSource:
   m_ObjectHideFlags: 0

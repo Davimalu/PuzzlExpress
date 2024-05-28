@@ -1287,7 +1287,7 @@ MonoBehaviour:
   currLevel: 3
   starPrefab: {fileID: 8031868725272188793, guid: b5e0378098fc372e2a7d22e15fc5841c, type: 3}
   starPositions:
-  - {x: -6, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!4 &911899132
 Transform:
   m_ObjectHideFlags: 0
