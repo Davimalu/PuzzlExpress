@@ -26,12 +26,14 @@ public class TrainScript : MonoBehaviour
     public AudioSource winSound;
     public AudioSource crashSound;
     public UIScript UIScript;
+    public GameObject gameOverPanel;
 
 
     // Start is called before the first frame update
     void Start()
     {
         UIScript = GameObject.Find("Canvas").GetComponent<UIScript>();
+        gameOverPanel = GameObject.Find("GameOverPanel");
 
         // Disable Vsync and limit frames to 60 FPS
         QualitySettings.vSyncCount = 0;
@@ -217,10 +219,12 @@ public class TrainScript : MonoBehaviour
     {
         Debug.Log("Game over");
 
-        if (GameObject.Find("GameOverPanel") == null) return;
-
         crashSound.Play();
-        GameObject.Find("GameOverPanel").GetComponent<Animator>().SetBool("show", true);
+
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.GetComponent<Animator>().SetBool("show", true);
+        }
     }
 
     private void won()
