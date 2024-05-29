@@ -46,13 +46,29 @@ public class UIScript : MonoBehaviour
         }
     }
 
+    public void togglePause()
+    {
+        if (gameIsPaused)
+        {
+            resume();
+        }
+        else
+        {
+            pause();
+        }
+    }
+
     public void pause()
     {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        gameIsPaused = true;
+        // Pause is only possible if not Game Over and not already won
+        if (!GameObject.Find("GameOverPanel").GetComponent<Animator>().GetBool("show") && !GameObject.Find("WonPanel").GetComponent<Animator>().GetBool("show"))
+        {
+            pauseMenuUI.SetActive(true);
+            Time.timeScale = 0f;
+            gameIsPaused = true;
 
-        trainScript.drivingSound.Pause();
+            trainScript.drivingSound.Pause();
+        }
     }
 
     IEnumerator waiter(string scene)
