@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class TutorialCreater : MonoBehaviour
@@ -60,6 +61,7 @@ public class TutorialCreater : MonoBehaviour
             Debug.Log("Tutorial finished.");
             this.GetComponent<BoxCollider2D>().enabled = false;
             train.GetComponent<BoxCollider2D>().enabled = true;
+            train.transform.Find("CenterCollider").GetComponent<BoxCollider2D>().enabled = true;
 
             foreach (GameObject obj in _highlightObjects) {
                 obj.GetComponent<SpriteRenderer>().sortingOrder = 0;
@@ -105,6 +107,7 @@ public class TutorialCreater : MonoBehaviour
             Debug.Log("Tutorial finished.");
             this.GetComponent<BoxCollider2D>().enabled = false;
             train.GetComponent<BoxCollider2D>().enabled = true;
+            train.transform.Find("CenterCollider").GetComponent<BoxCollider2D>().enabled = true;
             train.GetComponent<SpriteRenderer>().sortingOrder = 0;
             trainStation.GetComponent<SpriteRenderer>().sortingOrder = 1;
             continueText.SetActive(false);
@@ -152,8 +155,8 @@ public class TutorialCreater : MonoBehaviour
             }
         } else if (rail.name.Contains("Switch")) {
             switch (rail.GetComponent<SpriteRenderer>().sprite.name) {
-                case "switch_pos1": return false;
-                case "switch_pos2": rail.GetComponent<switchScript>().isRotateable = false;
+                case "weichePos1": return false;
+                case "weichePos2": rail.GetComponent<switchScript>().isRotateable = false;
                     return true;
             }
         } 
@@ -168,6 +171,7 @@ public class TutorialCreater : MonoBehaviour
             if(lineIndex >= _tutorialTextLines.Count) {
                 break;
             }
+            //yield return StartCoroutine(StartTutorial.FadeInMesh(arrow, 1f));
             arrow.SetActive(true);
             yield return new WaitForSeconds(0.7f);
         }
