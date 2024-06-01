@@ -6,6 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(MeshRenderer))]
 public class ArrowGenerator : MonoBehaviour
 {
+    // Source of the video - https://www.youtube.com/watch?v=8lXDLy24rJw
+    // Source of the Code - https://pastebin.com/HmrYF0xr
+    
     public float stemLength;
     public float stemWidth;
     public float tipLength;

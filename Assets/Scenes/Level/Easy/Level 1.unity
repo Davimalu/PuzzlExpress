@@ -3471,6 +3471,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 486475014535492316, guid: 519afdaa64cd59143a445a9bb94ed06f, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 712808807976044634, guid: 519afdaa64cd59143a445a9bb94ed06f, type: 3}
       propertyPath: m_Camera
       value: 
@@ -3482,6 +3486,34 @@ PrefabInstance:
     - target: {fileID: 1813137113969577230, guid: 519afdaa64cd59143a445a9bb94ed06f, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483189391978364472, guid: 519afdaa64cd59143a445a9bb94ed06f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483189391978364472, guid: 519afdaa64cd59143a445a9bb94ed06f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483189391978364472, guid: 519afdaa64cd59143a445a9bb94ed06f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 4740846785319725640}
+    - target: {fileID: 6483189391978364472, guid: 519afdaa64cd59143a445a9bb94ed06f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483189391978364472, guid: 519afdaa64cd59143a445a9bb94ed06f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: toggleTutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483189391978364472, guid: 519afdaa64cd59143a445a9bb94ed06f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TutorialCreater, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483189391978364472, guid: 519afdaa64cd59143a445a9bb94ed06f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8653268432553011079, guid: 519afdaa64cd59143a445a9bb94ed06f, type: 3}
       propertyPath: m_Pivot.x
@@ -3648,7 +3680,7 @@ MonoBehaviour:
   - "Hey, neuer Lokf\xFChrer! Willkommen zu deinem ersten Abenteuer. "
   - Dein Ziel ist es, den Zug sicher zum Bahnhof zu bringen. Lass uns lernen wie
     das geht!
-  - Um den Zug losfahren zu lassen, klicke einfach darauf.
+  - Um den Zug losfahren zu lassen, klicke einfach auf diesen.
   train: {fileID: 1676888846}
   trainStation: {fileID: 368882584}
   backgroundDarkener: {fileID: 3380388521217211237}
