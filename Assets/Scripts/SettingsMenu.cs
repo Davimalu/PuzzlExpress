@@ -17,4 +17,9 @@ public class SettingsMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Mainmenu");
     }
+
+    public void ResetPlayerprefs()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }
