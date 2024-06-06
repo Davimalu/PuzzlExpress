@@ -697,7 +697,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &5110288278455104721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1041,7 +1041,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   rail: {fileID: 0}
-  rotateRailBy: 0
+  rotateRailTo: 0
 --- !u!1 &8928963364216150755
 GameObject:
   m_ObjectHideFlags: 0
