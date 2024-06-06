@@ -17,6 +17,10 @@ public class SettingsMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Mainmenu");
     }
+    public void setFullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+    }
 
     public void ResetPlayerprefs()
     {
