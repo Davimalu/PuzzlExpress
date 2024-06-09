@@ -1029,10 +1029,6 @@ MonoBehaviour:
   - Dein Ziel ist es, den Zug sicher zum Bahnhof zu bringen. Lass uns lernen wie
     das geht!
   - Um den Zug losfahren zu lassen, klicke einfach darauf.
-  train: {fileID: 0}
-  trainStation: {fileID: 0}
-  backgroundDarkener: {fileID: 7092135113571117895}
-  continueText: {fileID: 5101660102648603374}
   _arrows:
   - {fileID: 300015450603526938}
   - {fileID: 333734165446921747}
