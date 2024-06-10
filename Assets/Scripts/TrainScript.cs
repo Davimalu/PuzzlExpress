@@ -13,7 +13,7 @@ public class TrainScript : MonoBehaviour
     private Rigidbody2D train_RigidBody;
     public bool isDriving;
     private int collisionCount = 0;
-    public float speed;
+    private float speed = 5f;
     private bool isInStation = false;
 
     private switchScript switchScript;
@@ -38,6 +38,18 @@ public class TrainScript : MonoBehaviour
         // Disable Vsync and limit frames to 60 FPS
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
+
+        switch (PlayerPrefs.GetInt("trainSpeed")) {
+            case 0:
+                speed = 5f;
+                break;
+            case 1:
+                speed = 7.5f;
+                break;
+            case 2:
+                speed = 10f;
+                break;
+        }
 
         // Get RigidBody Component
         train_RigidBody = GetComponent<Rigidbody2D>();
