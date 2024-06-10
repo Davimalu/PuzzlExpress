@@ -336,11 +336,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e468c95d2acb511e92374c4daed770c, type: 3}
---- !u!1 &402751310 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6620548089170720213, guid: 6e468c95d2acb511e92374c4daed770c, type: 3}
-  m_PrefabInstance: {fileID: 402751309}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,11 +896,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82138dc5ae45de846a12b0852742989c, type: 3}
---- !u!1 &1183490822 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3373144324882141381, guid: 82138dc5ae45de846a12b0852742989c, type: 3}
-  m_PrefabInstance: {fileID: 1183490821}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1187177663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1113,6 +1103,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5208154476745871190, guid: ebc260bbe1a6b8869ad587f66cbc7a20, type: 3}
   m_PrefabInstance: {fileID: 1488132862}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1562167145
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4335903702443510335, guid: e2c0a905da391b24e9facd4d61e7af0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335903702443510335, guid: e2c0a905da391b24e9facd4d61e7af0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335903702443510335, guid: e2c0a905da391b24e9facd4d61e7af0a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335903702443510335, guid: e2c0a905da391b24e9facd4d61e7af0a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335903702443510335, guid: e2c0a905da391b24e9facd4d61e7af0a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335903702443510335, guid: e2c0a905da391b24e9facd4d61e7af0a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335903702443510335, guid: e2c0a905da391b24e9facd4d61e7af0a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335903702443510335, guid: e2c0a905da391b24e9facd4d61e7af0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335903702443510335, guid: e2c0a905da391b24e9facd4d61e7af0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335903702443510335, guid: e2c0a905da391b24e9facd4d61e7af0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779102977821142802, guid: e2c0a905da391b24e9facd4d61e7af0a, type: 3}
+      propertyPath: m_Name
+      value: Background
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e2c0a905da391b24e9facd4d61e7af0a, type: 3}
 --- !u!1001 &1591102642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1739,10 +1786,6 @@ MonoBehaviour:
   - "Schau mal, was wir f\xFCr dich vorbereitet haben: \nbrandneue Kurvenschienen!"
   - Klicke die neue Schiene an, um sie zu drehen.
   - Bringe den Zug zum Ziel.
-  train: {fileID: 402751310}
-  trainStation: {fileID: 1183490822}
-  backgroundDarkener: {fileID: 1198853881383714743}
-  continueText: {fileID: 5218628097228706316}
   _arrows:
   - {fileID: 4068299999966719518}
   _highlightObjects: []
@@ -2760,3 +2803,4 @@ SceneRoots:
   - {fileID: 2005327469}
   - {fileID: 1896712573}
   - {fileID: 5769047696784409719}
+  - {fileID: 1562167145}
