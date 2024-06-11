@@ -8,8 +8,8 @@ public class UIScript : MonoBehaviour
     public static bool gameIsPaused = false;
     public TrainScript trainScript;
     public GameObject pauseMenuUI;
-    public Animator wonPanel;
-    public Animator losePanel;
+    public GameObject WonPanel;
+    public GameObject GameOverPanel;
 
     private LevelScript levelScript;
 
@@ -73,8 +73,8 @@ public class UIScript : MonoBehaviour
 
     IEnumerator waiter(string scene)
     {
-        wonPanel.SetBool("show", false);
-        losePanel.SetBool("show", false);
+        WonPanel.SetActive(false);
+        GameOverPanel.SetActive(false);
         levelScript.closeScene();
 
         yield return new WaitForSeconds(5);
