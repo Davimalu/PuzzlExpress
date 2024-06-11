@@ -77,7 +77,7 @@ public class UIScript : MonoBehaviour
         GameOverPanel.SetActive(false);
         levelScript.closeScene();
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
 
         SceneManager.LoadScene(scene);
     }
