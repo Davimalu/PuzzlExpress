@@ -61,7 +61,7 @@ public class UIScript : MonoBehaviour
     public void pause()
     {
         // Pause is only possible if not Game Over and not already won
-        if (!GameObject.Find("GameOverPanel").GetComponent<Animator>().GetBool("show") && !GameObject.Find("WonPanel").GetComponent<Animator>().GetBool("show"))
+        if (WonPanel.activeSelf == false && GameOverPanel.activeSelf == false)
         {
             pauseMenuUI.SetActive(true);
             Time.timeScale = 0f;

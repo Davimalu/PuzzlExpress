@@ -672,7 +672,7 @@ GameObject:
   - component: {fileID: 7596964534108299007}
   - component: {fileID: 6302082803098415928}
   m_Layer: 5
-  m_Name: GameOverPanel
+  m_Name: GameOverPanel (Deprecated)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2106,7 +2106,7 @@ GameObject:
   - component: {fileID: 7931947213419854463}
   - component: {fileID: 3746443727356065243}
   m_Layer: 5
-  m_Name: WonPanel
+  m_Name: WonPanel (Deprecated)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
