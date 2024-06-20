@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class StartTutorial : MonoBehaviour
 {
+    public float timeToWait = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,7 @@ public class StartTutorial : MonoBehaviour
     // Triggers the tutorial
     IEnumerator TriggerTutorial()
     {
-        yield return new WaitForSeconds(4.5f); // Wait for 4.5sec
+        yield return new WaitForSeconds(timeToWait); // Wait for 4.5sec
         // Go through all children
         foreach (Transform child in transform)
         {
