@@ -1249,7 +1249,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currLevel: 4
   starPrefab: {fileID: 8031868725272188793, guid: b5e0378098fc372e2a7d22e15fc5841c, type: 3}
-  starPositions: []
+  starPositions:
+  - {x: 5, y: 0, z: 0}
 --- !u!4 &848251853
 Transform:
   m_ObjectHideFlags: 0

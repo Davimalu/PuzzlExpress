@@ -1221,6 +1221,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2098875686690375995, guid: 519afdaa64cd59143a445a9bb94ed06f, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165862539494526890, guid: 519afdaa64cd59143a445a9bb94ed06f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8653268432553011079, guid: 519afdaa64cd59143a445a9bb94ed06f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2160,9 +2168,9 @@ MonoBehaviour:
   currLevel: 12
   starPrefab: {fileID: 8031868725272188793, guid: b5e0378098fc372e2a7d22e15fc5841c, type: 3}
   starPositions:
-  - {x: -4, y: 4, z: 0}
+  - {x: 1, y: 4, z: 0}
   - {x: 2, y: 0, z: 0}
-  - {x: -2, y: 4, z: 0}
+  - {x: -3, y: -4, z: 0}
 --- !u!4 &848251853
 Transform:
   m_ObjectHideFlags: 0
