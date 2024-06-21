@@ -258,8 +258,11 @@ MonoBehaviour:
   skins:
   - {fileID: 21300000, guid: 8e6d09226863f1a48be40d63a03ae284, type: 3}
   - {fileID: 21300000, guid: f624de01954f27745bf8e2f957bf432c, type: 3}
+  - {fileID: 21300000, guid: 30600a4d1cad2e3418ce5a9fe3946722, type: 3}
+  - {fileID: 21300000, guid: 4e5065221c2f10d4d8c3c946a0b879f9, type: 3}
+  - {fileID: 21300000, guid: 91134e770de0cf949bca0b9e42207e2a, type: 3}
+  - {fileID: 21300000, guid: 93d89d5061e510142952a1b1b7bfcaee, type: 3}
   - {fileID: 21300000, guid: bf99d26f9976fe345924ceefa7287c09, type: 3}
-  - {fileID: 21300000, guid: e6b0f32701dadd34e883c2819b6106fb, type: 3}
   - {fileID: 21300000, guid: d4075cb51578844409cc17e20db272ad, type: 3}
   trainHorn: {fileID: 3843207895543743726}
   drivingSound: {fileID: 1755524402070263512}

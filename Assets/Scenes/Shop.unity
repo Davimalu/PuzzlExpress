@@ -190,7 +190,7 @@ MonoBehaviour:
     m_Left: 47
     m_Right: 0
     m_Top: 35
-    m_Bottom: 0
+    m_Bottom: 120
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
@@ -623,16 +623,25 @@ MonoBehaviour:
     stars: 0
   - id: 1
     skin: {fileID: 21300000, guid: f624de01954f27745bf8e2f957bf432c, type: 3}
-    stars: 10
-  - id: 3
-    skin: {fileID: 21300000, guid: bf99d26f9976fe345924ceefa7287c09, type: 3}
-    stars: 20
+    stars: 5
   - id: 2
-    skin: {fileID: 21300000, guid: e6b0f32701dadd34e883c2819b6106fb, type: 3}
-    stars: 30
+    skin: {fileID: 21300000, guid: 30600a4d1cad2e3418ce5a9fe3946722, type: 3}
+    stars: 15
   - id: 3
+    skin: {fileID: 21300000, guid: 4e5065221c2f10d4d8c3c946a0b879f9, type: 3}
+    stars: 20
+  - id: 4
+    skin: {fileID: 21300000, guid: 91134e770de0cf949bca0b9e42207e2a, type: 3}
+    stars: 30
+  - id: 5
+    skin: {fileID: 21300000, guid: 93d89d5061e510142952a1b1b7bfcaee, type: 3}
+    stars: 35
+  - id: 6
+    skin: {fileID: 21300000, guid: bf99d26f9976fe345924ceefa7287c09, type: 3}
+    stars: 45
+  - id: 7
     skin: {fileID: 21300000, guid: d4075cb51578844409cc17e20db272ad, type: 3}
-    stars: 40
+    stars: 50
   wrapper: {fileID: 44314554}
 --- !u!1 &837140468
 GameObject:
@@ -692,7 +701,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 25
   m_Viewport: {fileID: 1148435219}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -1005,7 +1014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding: {x: 0, y: 0, z: 0, w: -25}
+  m_Padding: {x: 0, y: 50, z: 0, w: -25}
   m_Softness: {x: 0, y: 120}
 --- !u!114 &1148435221
 MonoBehaviour:
