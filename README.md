@@ -1,6 +1,7 @@
 # User Manual
 
 Projekt: PuzzlExpress
+
 Teammitglieder: Florian Schmidt, David Zeugner, David Fröschl, Fanni Horvat, Süleyman Tegmen
 
 Dieses Dokument erklärt die grundlegenden Spielmechaniken bzw. die grundlegende Funktionsweise unseres Spiels, inkl. aller Menüpünkte und Optionen.
@@ -72,6 +73,7 @@ Das Spiel kann durch Klicken auf "Spiel fortsetzen" oder nochmaliges Drücken de
 # Deployment Manual
 
 Projekt: PuzzlExpress
+
 Teammitglieder: Florian Schmidt, David Zeugner, David Fröschl, Fanni Horvat, Süleyman Tegmen
 
 Dieses Dokument enthält alle Schritte, die notwendig, um das fertige Spiel auszuführen bzw. den SourceCode mithilfe des Unity Editors zu öffnen und das Spiel anschließend für eine bestimmte Plattform zu exportieren.
@@ -117,6 +119,7 @@ Nach dem Klick auf "Build" wird der User nach einem Dateinahmen und Speicherort 
 ## Architectural Description
 
 Projekt: PuzzlExpress
+
 Teammitglieder: Florian Schmidt, David Zeugner, David Fröschl, Fanni Horvat, Süleyman Tegmen
 
 Dieses Dokument beschreibt die Architektur des Projekts, das mit Unity und C# entwickelt wurde. Das Projekt integriert verschiedene externe Programme zur Erstellung von Assets und nutzt Unity zur Implementierung und Verwaltung dieser Assets in einer strukturierten Umgebung.
