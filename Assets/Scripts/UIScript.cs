@@ -106,6 +106,14 @@ public class UIScript : MonoBehaviour
     public void goToNextLevel()
     {
         int currLevel = GameObject.Find("LevelManager").GetComponent<LevelScript>().currLevel;
+
+        // Last Level -> Go to Level Select
+        if (currLevel == 25)
+        {
+            backToLevelSelect();
+            return;
+        }
+
         StartCoroutine(waiter("Level " + (currLevel + 1)));
     }
 
