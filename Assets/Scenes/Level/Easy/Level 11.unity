@@ -5356,9 +5356,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tutorialTextLines:
   - Komm, wir schauen uns die letzte neue Schiene an!
-  - "Ein Baum blockiert den Weg, weshalb Z\xFCge nicht durchfahren k\xF6nnen."
-  - Klicke auf den Baum, um den Weg frei zu machen.
-  - Jetzt kannst du die Schiene drehen und den Zug weiterfahren lassen.
+  - "Dieser Baum blockiert den Weg, weshalb Z\xFCge nicht durchfahren k\xF6nnen."
+  - Klicke auf die Schiene, um den Weg frei zu machen.
+  - Jetzt kannst du die Schiene korrigieren und den Zug weiterfahren lassen.
   _arrows:
   - {fileID: 1248744747181629555}
   _highlightObjects: []
@@ -5400,7 +5400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -18, y: -88}
+  m_AnchoredPosition: {x: -18, y: -115}
   m_SizeDelta: {x: 44, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7396046601273285004

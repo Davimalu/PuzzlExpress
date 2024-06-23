@@ -52,10 +52,10 @@ public class TutorialCreater : MonoBehaviour
             return;
         }
 
-        // If there is no rail assigned and the Rail StraightRailNew exist (Only the case if the blocked rail got cleared)
+        // If there is no rail assigned and the Rail StraightRailNew exists (Only the case if the blocked rail got cleared)
         if (rail == null && GameObject.Find("StraightRailNew") != null) {
             StopCoroutine(typingCoroutine); // Stops the Typing/Text Coroutine
-            typingCoroutine = StartCoroutine (TextTypingEffect()); // Shows the Text with an Typewriter effect
+            typingCoroutine = StartCoroutine (TextTypingEffect()); // Shows the next Text with an Typewriter effect
             rail = GameObject.Find("StraightRailNew");
             rail.GetComponent<SpriteRenderer>().sortingOrder = 1; // Increase the Sorting layer, in order to highlight it in the tutorial
         }
@@ -92,12 +92,10 @@ public class TutorialCreater : MonoBehaviour
     // Stops the tutorial text from advancing after clicking the pause button
     private bool toggleTutorial()
     {
-        if (GameObject.Find("PauseMenu") != null)
-        {
+        if (GameObject.Find("PauseMenu") != null) {
             return true;
         }
-        else
-        {
+        else {
             return false;
         }
     }
