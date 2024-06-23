@@ -5356,9 +5356,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tutorialTextLines:
   - Komm, wir schauen uns die letzte neue Schiene an!
-  - "Diese Schiene blockiert den Weg, weshalb Z\xFCge nicht durchfahren k\xF6nnen."
-  - Klicke auf die Schiene, um den Weg frei zu machen.
-  - Jetzt kannst du die Schiene korrigieren und den Zug weiterfahren lassen.
+  - "Ein Baum blockiert den Weg, weshalb Z\xFCge nicht durchfahren k\xF6nnen."
+  - Klicke auf den Baum, um den Weg frei zu machen.
+  - Jetzt kannst du die Schiene drehen und den Zug weiterfahren lassen.
   _arrows:
   - {fileID: 1248744747181629555}
   _highlightObjects: []
