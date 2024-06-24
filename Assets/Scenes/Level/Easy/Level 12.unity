@@ -4748,7 +4748,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tutorialTextLines:
   - 'Du hast jetzt alle Werkzeuge, um die Abenteuer auf eigene Faust zu erleben. '
-  - "Viel Spa\xDF beim Erkunden der restlichen Level!"
   _arrows: []
   _highlightObjects: []
   rail: {fileID: 0}
