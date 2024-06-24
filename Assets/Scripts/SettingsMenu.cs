@@ -4,15 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
+    public TMPro.TMP_Dropdown trainSpeedDropdown;
 
-    public void SetVolume (float volume)
+    void Start()
+    {
+        trainSpeedDropdown = GameObject.Find("TrainSpeedDropdown").GetComponent<TMPro.TMP_Dropdown>();
+        trainSpeedDropdown.value = PlayerPrefs.GetInt("trainSpeed", 0);
+    }
+
+    public void SetVolume(float volume)
     {
         audioMixer.SetFloat("volume", volume);
-        
+
     }
 
     public void backToMainMenu()

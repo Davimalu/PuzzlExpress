@@ -555,6 +555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: ccd5909d3fe53824687bf9773c91cac1, type: 2}
+  trainSpeedDropdown: {fileID: 0}
 --- !u!1 &218222487
 GameObject:
   m_ObjectHideFlags: 0
@@ -2024,6 +2025,7 @@ GameObject:
   - component: {fileID: 1112319134}
   - component: {fileID: 1112319133}
   - component: {fileID: 1112319132}
+  - component: {fileID: 1112319135}
   m_Layer: 5
   m_Name: TrainSpeedDropdown
   m_TagString: Untagged
@@ -2105,9 +2107,7 @@ MonoBehaviour:
     m_Options:
     - m_Text: Normal
       m_Image: {fileID: 0}
-    - m_Text: 1,5x
-      m_Image: {fileID: 0}
-    - m_Text: 2x
+    - m_Text: Schneller
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2163,6 +2163,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112319130}
   m_CullTransparentMesh: 1
+--- !u!114 &1112319135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112319130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db7330f7ff99bb4e8de6673aaa498f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 0}
+  trainSpeedDropdown: {fileID: 1112319132}
 --- !u!1 &1222035515
 GameObject:
   m_ObjectHideFlags: 0

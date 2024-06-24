@@ -37,15 +37,13 @@ public class TrainScript : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
 
-        switch (PlayerPrefs.GetInt("trainSpeed")) {
+        switch (PlayerPrefs.GetInt("trainSpeed"))
+        {
             case 0:
                 speed = 5f;
                 break;
             case 1:
-                speed = 7.5f;
-                break;
-            case 2:
-                speed = 10f;
+                speed = 6.25f;
                 break;
         }
 
@@ -230,7 +228,7 @@ public class TrainScript : MonoBehaviour
         Debug.Log("Game over");
 
         crashSound.Play();
-        
+
         if (UIScript.GameOverPanel != null)
         {
             UIScript.GameOverPanel.SetActive(true);
