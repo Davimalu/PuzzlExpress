@@ -10,11 +10,15 @@ public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public TMPro.TMP_Dropdown trainSpeedDropdown;
+    public TMPro.TMP_Dropdown resolutionDropdown;
 
     void Start()
     {
         trainSpeedDropdown = GameObject.Find("TrainSpeedDropdown").GetComponent<TMPro.TMP_Dropdown>();
         trainSpeedDropdown.value = PlayerPrefs.GetInt("trainSpeed", 0);
+
+        resolutionDropdown = GameObject.Find("ResolutionDropdown").GetComponent<TMPro.TMP_Dropdown>();
+        resolutionDropdown.value = PlayerPrefs.GetInt("resolution", 0);
     }
 
     public void SetVolume(float volume)
@@ -35,6 +39,24 @@ public class SettingsMenu : MonoBehaviour
     public void setTrainSpeed(int speed)
     {
         PlayerPrefs.SetInt("trainSpeed", speed);
+    }
+
+    public void setResolution(int resolution)
+    {
+        switch (resolution)
+        {
+            case 0:
+                Screen.SetResolution(1920, 1080, Screen.fullScreen);
+                break;
+            case 1:
+                Screen.SetResolution(1366, 768, Screen.fullScreen);
+                break;
+            case 2:
+                Screen.SetResolution(1280, 720, Screen.fullScreen);
+                break;
+        }
+
+        PlayerPrefs.SetInt("resolution", resolution);
     }
 
     public void ResetPlayerprefs()
