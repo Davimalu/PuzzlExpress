@@ -454,6 +454,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f629b63585173721835556b62c176e9, type: 3}
+--- !u!1 &341672215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 486475014535492316, guid: 519afdaa64cd59143a445a9bb94ed06f, type: 3}
+  m_PrefabInstance: {fileID: 3837430140363948908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &346075770 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6741456145557195665, guid: 2f629b63585173721835556b62c176e9, type: 3}
@@ -4790,6 +4795,7 @@ MonoBehaviour:
   - Dein Ziel ist es, den Zug sicher zum Bahnhof zu bringen. Lass uns lernen wie
     das geht!
   - Um den Zug losfahren zu lassen, klicke einfach auf diesen.
+  button: {fileID: 341672215}
   _arrows:
   - {fileID: 5236560784935652152}
   - {fileID: 5198411024812645937}

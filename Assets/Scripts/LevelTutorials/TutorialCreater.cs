@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 using TMPro;
 
@@ -13,6 +14,7 @@ public class TutorialCreater : MonoBehaviour
     private GameObject trainStation;
     private GameObject backgroundDarkener;
     private GameObject continueText;
+    private GameObject pauseButton;
     public List<GameObject> _arrows; // Creates a list, used to add arrows
     public List<GameObject> _highlightObjects; // Creates a list, used to add highlighted objects
     public GameObject rail; // The chosen rail
@@ -30,6 +32,7 @@ public class TutorialCreater : MonoBehaviour
         trainStation = GameObject.Find("TrainStation");
         backgroundDarkener = GameObject.Find("BackgroundDarkener");
         continueText = GameObject.Find("ContinueTextAdjuster");
+        pauseButton = GameObject.Find("Pause");
         _text = GetComponent<TMP_Text>();
         typingCoroutine = StartCoroutine (TextTypingEffect()); // Shows the First Text with an Typewriter effect
 
@@ -107,6 +110,12 @@ public class TutorialCreater : MonoBehaviour
         if (isTutorialStillRunning == false || isShortTutorial == true || toggleTutorial() == true) {
             return; // Return, since the other parts arent needed
         }
+
+        // Check if pause button has been clicked
+        if (IsPointerOverPauseButton() == true) {
+            // return, since pause button has been clicked
+            return;
+        } 
 
         // If the Current text isnt the last
         if (lineIndex < _tutorialTextLines.Count - 1) {
@@ -198,11 +207,37 @@ public class TutorialCreater : MonoBehaviour
         return false;
     }
 
+    // Checks if the mouse is hovering over the pause button
+    private bool IsPointerOverPauseButton()
+    {
+        // Create a variable, which contains all the information regarding the pointer
+        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+        // Set the position to the current mouse position
+        pointerEventData.position = Input.mousePosition;
+
+        // Create a list, which will contain information regarding the results of a raycast
+        var results = new List<RaycastResult>();
+        // Does a raycast with the information it receives from pointerEventData and saves it into results
+        EventSystem.current.RaycastAll(pointerEventData, results);
+
+        // Go through all results
+        foreach (var result in results)
+        {
+            // Check if gameobject is the pause button
+            if (result.gameObject == pauseButton)
+            {
+                return true; // return true, since mouse is hovering over pause button
+            }
+        }
+
+        return false; // return false, since mouse isnt hovering over pause button
+    }
+
     // Enables the arrows
     IEnumerator ShowArrows()
     {
         yield return new WaitForSeconds(1.4f); // Wait for 1.4sec
-        // Go throgh all arrows
+        // Go through all arrows
         foreach (GameObject arrow in _arrows) {
             // If the text has been skipped and therefore reached the next text
             if(lineIndex >= _tutorialTextLines.Count) {
