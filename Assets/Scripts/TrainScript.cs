@@ -14,7 +14,6 @@ public class TrainScript : MonoBehaviour
     public bool isDriving;
     private int collisionCount = 0;
     private float speed = 5f;
-    private bool isInStation = false;
 
     private switchScript switchScript;
 
@@ -113,23 +112,10 @@ public class TrainScript : MonoBehaviour
         if (collision.gameObject.tag.Equals("trainStation") == true)
         {
             winSound.Play();
+            isDriving = false;
 
             UIScript.WonPanel.SetActive(true);
-            isInStation = true;
-        }
-
-        if (collision.gameObject.tag.Equals("stationEnd") == true)
-        {
-            if (!isInStation)
-            {
-                gameOver();
-            }
-            else
-            {
-                won();
-            }
-
-            isDriving = false;
+            won();
         }
 
         // Collision with straight rail
