@@ -8,9 +8,9 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public AudioMixer audioMixer;
     public TMPro.TMP_Dropdown trainSpeedDropdown;
     public TMPro.TMP_Dropdown resolutionDropdown;
+    [SerializeField] Slider volumeSlider;
 
     void Start()
     {
@@ -19,12 +19,32 @@ public class SettingsMenu : MonoBehaviour
 
         resolutionDropdown = GameObject.Find("ResolutionDropdown").GetComponent<TMPro.TMP_Dropdown>();
         resolutionDropdown.value = PlayerPrefs.GetInt("resolution", 0);
+
+        if(!PlayerPrefs.HasKey("musicVolume"))
+        {
+            PlayerPrefs.SetFloat("musicVolume", 1);
+            Load();
+        }
+        else
+        {
+            Load();
+        }
     }
 
-    public void SetVolume(float volume)
+    private void Load()
     {
-        audioMixer.SetFloat("volume", volume);
+        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+    }
 
+    public void SetVolume()
+    {
+        AudioListener.volume = volumeSlider.value;
+        Save();
+    }
+
+    private void Save()
+    {
+        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
     }
 
     public void backToMainMenu()

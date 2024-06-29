@@ -554,9 +554,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db7330f7ff99bb4e8de6673aaa498f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: ccd5909d3fe53824687bf9773c91cac1, type: 2}
   trainSpeedDropdown: {fileID: 0}
   resolutionDropdown: {fileID: 0}
+  volumeSlider: {fileID: 0}
 --- !u!1 &218222487
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,9 +2176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db7330f7ff99bb4e8de6673aaa498f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 0}
   trainSpeedDropdown: {fileID: 1112319132}
   resolutionDropdown: {fileID: 0}
+  volumeSlider: {fileID: 0}
 --- !u!1 &1222035515
 GameObject:
   m_ObjectHideFlags: 0
@@ -3705,9 +3705,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db7330f7ff99bb4e8de6673aaa498f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 0}
   trainSpeedDropdown: {fileID: 0}
   resolutionDropdown: {fileID: 0}
+  volumeSlider: {fileID: 0}
 --- !u!1 &2024758394
 GameObject:
   m_ObjectHideFlags: 0
@@ -3837,6 +3837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2077070585}
   - component: {fileID: 2077070586}
+  - component: {fileID: 2077070587}
   m_Layer: 5
   m_Name: VolumeSlider
   m_TagString: Untagged
@@ -3910,17 +3911,17 @@ MonoBehaviour:
   m_FillRect: {fileID: 1737618657}
   m_HandleRect: {fileID: 1930208073}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 120716209}
+      - m_Target: {fileID: 2077070587}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: SetVolume
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3929,6 +3930,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2077070587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077070584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db7330f7ff99bb4e8de6673aaa498f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trainSpeedDropdown: {fileID: 0}
+  resolutionDropdown: {fileID: 0}
+  volumeSlider: {fileID: 2077070586}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
