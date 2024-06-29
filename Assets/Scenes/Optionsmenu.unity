@@ -3919,7 +3919,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2077070587}
-        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_TargetAssemblyTypeName: SoundMixer, Assembly-CSharp
         m_MethodName: SetVolume
         m_Mode: 1
         m_Arguments:
@@ -3939,11 +3939,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2077070584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db7330f7ff99bb4e8de6673aaa498f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d9494e1573fe0b4fbc4793635b02538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trainSpeedDropdown: {fileID: 0}
-  resolutionDropdown: {fileID: 0}
   volumeSlider: {fileID: 2077070586}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
